@@ -21,33 +21,32 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
+          transition={{ delay: 0.2, duration: 0.6 }}        >
           <p className="text-gray-700 leading-relaxed mb-8">
-            From drawing comics as a child to creating digital experiences, my journey into 
-            design began early. At the age of 16, I got into website creation, and soon after, 
-            began building sites for local businesses. As my interest in interfaces grew, it 
-            naturally expanded into digital products and applications of all kinds.
+            My passion for design started with sketching and drawing as a child, evolving 
+            into a deep appreciation for visual communication and problem-solving. Currently 
+            pursuing my degree in Design, I'm constantly exploring new ways to merge creativity 
+            with functionality across various mediums and disciplines.
           </p>
           
           <p className="text-gray-700 leading-relaxed mb-8">
-            A strong fascination with typography and user experience led me to pursue studies 
-            in design, where I funded my education through commissioned development work. 
-            Over the years, I've worked with a diverse range of clients, from early-stage 
-            startups to global brands.
+            Through my studies, I've developed a strong foundation in design principles while 
+            exploring diverse areas from brand identity to editorial design. I believe great 
+            design has the power to communicate, inspire, and create meaningful connections 
+            between people and ideas.
           </p>
 
           <div className="mb-12">
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
+            <h3 className="text-lg font-semibold mb-6">Design Interests</h3>
             <ul className="space-y-2 text-gray-700">
-              <li>• Digital Art Direction</li>
-              <li>• Website Design</li>
-              <li>• Digital Product & App Design</li>
-              <li>• UI & Interaction Design</li>
-              <li>• Wireframing & Prototyping</li>
-              <li>• Frontend Development</li>
-              <li>• Design Consulting</li>
-              <li>• Workshops & Mentoring</li>
+              <li>• Brand Identity & Logo Design</li>
+              <li>• Editorial & Publication Design</li>
+              <li>• Typography & Lettering</li>
+              <li>• Poster & Print Design</li>
+              <li>• Illustration & Digital Art</li>
+              <li>• Exhibition & Spatial Design</li>
+              <li>• Social Impact Design</li>
+              <li>• Design Research & Theory</li>
             </ul>
           </div>
         </motion.div>
@@ -56,17 +55,16 @@ export default function About() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          <div className="mb-12">
+        >          <div className="mb-12">
             <h3 className="text-lg font-semibold mb-6">Education</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium">Design Institute</h4>
-                <p className="text-gray-600 text-sm">Master of Arts, Digital Design</p>
+                <h4 className="font-medium">Bachelor of Arts in Design</h4>
+                <p className="text-gray-600 text-sm">University • 2022 - Present</p>
               </div>
               <div>
-                <h4 className="font-medium">University of Design</h4>
-                <p className="text-gray-600 text-sm">Bachelor of Arts, Communication Design</p>
+                <h4 className="font-medium">Foundation in Art & Design</h4>
+                <p className="text-gray-600 text-sm">Art School • 2021 - 2022</p>
               </div>
             </div>
           </div>
@@ -75,28 +73,26 @@ export default function About() {
             <h3 className="text-lg font-semibold mb-6">Experience</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium">Senior Designer</h4>
-                <p className="text-gray-600 text-sm">Design Agency • 2020 - Present</p>
-              </div>
-              <div>
-                <h4 className="font-medium">Product Designer</h4>
-                <p className="text-gray-600 text-sm">Tech Startup • 2018 - 2020</p>
+                <h4 className="font-medium">Design Intern</h4>
+                <p className="text-gray-600 text-sm">Local Design Studio • Summer 2024</p>
               </div>
               <div>
                 <h4 className="font-medium">Freelance Designer</h4>
-                <p className="text-gray-600 text-sm">Independent • 2016 - 2018</p>
+                <p className="text-gray-600 text-sm">Small Business Projects • 2023 - Present</p>
+              </div>
+              <div>
+                <h4 className="font-medium">Teaching Assistant</h4>
+                <p className="text-gray-600 text-sm">University Design Department • 2024</p>
               </div>
             </div>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-6">Features & Recognition</h3>
+          </div>          <div>
+            <h3 className="text-lg font-semibold mb-6">Achievements & Recognition</h3>
             <div className="space-y-2 text-gray-700">
-              <p>• Featured in Design Magazine</p>
-              <p>• Awwwards Site of the Day</p>
-              <p>• CSS Design Awards</p>
-              <p>• Dribbble Top Shot</p>
-              <p>• Behance Featured Project</p>
+              <p>• Dean's List Student</p>
+              <p>• University Design Competition Winner</p>
+              <p>• Student Exhibition Participant</p>
+              <p>• Design Society Member</p>
+              <p>• Community Arts Award Recipient</p>
             </div>
           </div>
         </motion.div>
