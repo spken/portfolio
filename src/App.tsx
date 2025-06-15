@@ -1,34 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Header, Hero, Work, About, Contact } from './components'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeSection, setActiveSection] = useState('work')
+
+  const renderSection = () => {
+    switch (activeSection) {
+      case 'work':
+        return <Work />
+      case 'about':
+        return <About />
+      case 'contact':
+        return <Contact />
+      default:
+        return <Work />
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="min-h-screen bg-white text-black font-mono">
+      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+      <main className="container mx-auto px-6 py-8 max-w-6xl">
+        <Hero />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSection}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            {renderSection()}
+          </motion.div>
+        </AnimatePresence>
+      </main>
+    </div>
   )
 }
 
