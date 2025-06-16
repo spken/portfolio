@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
+import { useScrollAnimation, staggerContainer, fadeInUp } from '../hooks/useScrollAnimation'
 
 const projects = [
     {
@@ -53,6 +54,10 @@ const projects = [
 ]
 
 export default function Work() {
+    const { ref: titleRef, isInView: titleInView } = useScrollAnimation()
+    const { ref: gridRef, isInView: gridInView } = useScrollAnimation()
+    const { ref: bottomRef, isInView: bottomInView } = useScrollAnimation()
+
     return (
         <motion.section
             initial={{ opacity: 0 }}
@@ -61,20 +66,36 @@ export default function Work() {
             className="py-12"
         >
             <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                ref={titleRef}
+                variants={fadeInUp}
+                initial="hidden"
+                animate={titleInView ? "visible" : "hidden"}
                 className="text-2xl font-bold mb-12"
             >
                 Work
             </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <motion.div
+                ref={gridRef}
+                variants={staggerContainer}
+                initial="hidden"
+                animate={gridInView ? "visible" : "hidden"}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
                 {projects.map((project, index) => (
                     <motion.div
-                        key={project.id}
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1, duration: 0.6 }}
+                        key={project.id}                        variants={{
+                            hidden: { opacity: 0, y: 50 },
+                            visible: { 
+                                opacity: 1, 
+                                y: 0,
+                                transition: { 
+                                    delay: index * 0.1, 
+                                    duration: 0.6,
+                                    ease: [0.25, 0.46, 0.45, 0.94] as const
+                                }
+                            }
+                        }}
                         className="group cursor-pointer"
                     >
                         <div className="bg-gray-100 aspect-[4/3] rounded-lg mb-4 overflow-hidden relative">
@@ -105,12 +126,14 @@ export default function Work() {
                         </div>
                     </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.6 }} className="mt-16 p-8 bg-gray-50 rounded-lg"
+                ref={bottomRef}
+                variants={fadeInUp}
+                initial="hidden"
+                animate={bottomInView ? "visible" : "hidden"}
+                className="mt-16 p-8 bg-gray-50 rounded-lg"
             >
                 <h3 className="text-xl font-semibold mb-4">Academic Projects & Collaborations</h3>
                 <div className="flex flex-wrap gap-4 text-gray-600">

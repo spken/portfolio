@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useScrollAnimation, staggerContainer, fadeInUp } from '../hooks/useScrollAnimation'
 
 export default function Hero() {
     const titleWords = [
@@ -11,31 +12,49 @@ export default function Hero() {
         { text: "DIGITAL DESIGN", color: "text-black" }
     ]
 
+    const { ref: titleRef, isInView: titleInView } = useScrollAnimation()
+    const { ref: textRef, isInView: textInView } = useScrollAnimation()
+
     return (
         <section className="py-16 lg:py-24">
             <div className="max-w-4xl">
-                <motion.h1
-                    className="text-4xl lg:text-5xl font-bold leading-tight mb-8"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
+                <motion.div
+                    ref={titleRef}
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate={titleInView ? "visible" : "hidden"}
                 >
-                    {titleWords.map((word, index) => (
-                        <motion.span
-                            key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className={`${word.color} inline-block mr-3`}
-                        >
-                            {word.text}
-                        </motion.span>
-                    ))}
-                </motion.h1>
+                    <motion.h1
+                        className="text-4xl lg:text-5xl font-bold leading-tight mb-8"
+                        variants={fadeInUp}
+                    >
+                        {titleWords.map((word, index) => (
+                            <motion.span
+                                key={index}                                variants={{
+                                    hidden: { opacity: 0, y: 50 },
+                                    visible: { 
+                                        opacity: 1, 
+                                        y: 0,
+                                        transition: { 
+                                            delay: index * 0.1, 
+                                            duration: 0.5,
+                                            ease: [0.25, 0.46, 0.45, 0.94] as const
+                                        }
+                                    }
+                                }}
+                                className={`${word.color} inline-block mr-3`}
+                            >
+                                {word.text}
+                            </motion.span>
+                        ))}
+                    </motion.h1>
+                </motion.div>
+                
                 <motion.p
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
+                    ref={textRef}
+                    variants={fadeInUp}
+                    initial="hidden"
+                    animate={textInView ? "visible" : "hidden"}
                     className="text-lg text-gray-600 max-w-2xl leading-relaxed"
                 >
                     Currently pursuing a degree in Design, I explore the intersection of creativity
@@ -43,6 +62,6 @@ export default function Hero() {
                     I'm passionate about creating meaningful visual experiences that communicate effectively
                     and inspire audiences.
                 </motion.p>
-            </div>    </section>
+            </div></section>
     )
 }
