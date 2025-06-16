@@ -1,19 +1,22 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 interface HeaderProps {
-  activeSection: string
-  setActiveSection: (section: string) => void
+  activeSection: string;
+  setActiveSection: (section: string) => void;
 }
 
-export default function Header({ activeSection, setActiveSection }: HeaderProps) {
+export default function Header({
+  activeSection,
+  setActiveSection,
+}: HeaderProps) {
   const navigationItems = [
-    { id: 'work', label: 'WORK' },
-    { id: 'about', label: 'ABOUT' },
-    { id: 'contact', label: 'CONTACT' }
-  ]
+    { id: "work", label: "WORK" },
+    { id: "about", label: "ABOUT" },
+    { id: "contact", label: "CONTACT" },
+  ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -21,12 +24,12 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     >
       <div className="container mx-auto px-6 py-4 max-w-6xl">
         <div className="flex justify-between items-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="text-xl font-bold tracking-tight cursor-pointer"
-            onClick={() => setActiveSection('work')}
+            onClick={() => setActiveSection("work")}
           >
             CARLOTA VAQUER RODEMANN
           </motion.h1>
@@ -39,9 +42,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 transition={{ delay: 0.3 + index * 0.1 }}
                 onClick={() => setActiveSection(item.id)}
                 className={`text-sm font-medium transition-all duration-200 hover:text-gray-600 relative ${
-                  activeSection === item.id 
-                    ? 'text-black' 
-                    : 'text-gray-500'
+                  activeSection === item.id ? "text-black" : "text-gray-500"
                 }`}
               >
                 {item.label}
@@ -58,5 +59,5 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
         </div>
       </div>
     </motion.header>
-  )
+  );
 }

@@ -1,26 +1,29 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Header, Hero, Work, About, Contact } from './components'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Header, Hero, Work, About, Contact } from "./components";
 
 function App() {
-  const [activeSection, setActiveSection] = useState('work')
+  const [activeSection, setActiveSection] = useState("work");
 
   const renderSection = () => {
     switch (activeSection) {
-      case 'work':
-        return <Work />
-      case 'about':
-        return <About />
-      case 'contact':
-        return <Contact />
+      case "work":
+        return <Work />;
+      case "about":
+        return <About />;
+      case "contact":
+        return <Contact />;
       default:
-        return <Work />
+        return <Work />;
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-white text-black font-mono">
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Header
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+      />
       <main className="container mx-auto px-6 py-8 max-w-6xl">
         <Hero />
         <AnimatePresence mode="wait">
@@ -36,7 +39,7 @@ function App() {
         </AnimatePresence>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
