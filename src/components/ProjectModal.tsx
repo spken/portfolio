@@ -72,7 +72,6 @@ export default function ProjectModal({
   };
 
   if (!project) return null;
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -80,94 +79,90 @@ export default function ProjectModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={onClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="relative w-full max-w-6xl max-h-[90vh] bg-white rounded-lg overflow-hidden shadow-2xl"
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="relative w-full max-w-4xl max-h-[85vh] bg-white border border-gray-200 shadow-xl font-mono overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
+              <div className="flex-1 min-w-0">
+                <h2 className="text-lg font-medium text-black truncate">
                   {project.title}
                 </h2>
-                <p className="text-gray-600 mt-1">{project.description}</p>
+                <p className="text-sm text-gray-600 mt-1 line-clamp-2">{project.description}</p>
               </div>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                className="ml-4 p-1 hover:bg-gray-200 transition-colors"
               >
-                <X size={24} className="text-gray-600" />
+                <X size={20} className="text-gray-600" />
               </button>
-            </div>
-
-            <div className="relative bg-gray-50">
-              <div className="aspect-video relative overflow-hidden">
+            </div>            <div className="relative">
+              <div className="aspect-video relative overflow-hidden bg-gray-100">
                 <motion.img
                   key={currentSlide}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.2 }}
                   src={project.slides[currentSlide].image}
                   alt={
                     project.slides[currentSlide].title ||
                     `Slide ${currentSlide + 1}`
                   }
-                  className="w-full h-full object-contain bg-white"
+                  className="w-full h-full object-contain"
                 />
 
                 {project.slides.length > 1 && (
                   <>
                     <button
                       onClick={previousSlide}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/20 hover:bg-black/40 rounded-full transition-colors backdrop-blur-sm"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-white/90 hover:bg-white border border-gray-200 shadow-sm transition-all"
                     >
-                      <ChevronLeft size={24} className="text-white" />
+                      <ChevronLeft size={18} className="text-black" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/20 hover:bg-black/40 rounded-full transition-colors backdrop-blur-sm"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-white/90 hover:bg-white border border-gray-200 shadow-sm transition-all"
                     >
-                      <ChevronRight size={24} className="text-white" />
+                      <ChevronRight size={18} className="text-black" />
                     </button>
                   </>
                 )}
 
-                <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/50 text-white text-sm rounded-full backdrop-blur-sm">
-                  {currentSlide + 1} / {project.slides.length}
+                <div className="absolute bottom-3 right-3 px-2 py-1 bg-white/90 text-black text-xs border border-gray-200 font-mono">
+                  {currentSlide + 1}/{project.slides.length}
                 </div>
               </div>
 
               {project.slides[currentSlide].title && (
-                <div className="p-6 bg-white border-t border-gray-200">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <div className="p-4 border-b border-gray-200">
+                  <h3 className="text-sm font-medium text-black mb-1">
                     {project.slides[currentSlide].title}
                   </h3>
                   {project.slides[currentSlide].description && (
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-xs text-gray-600 leading-relaxed">
                       {project.slides[currentSlide].description}
                     </p>
                   )}
                 </div>
               )}
-            </div>
-
-            {project.slides.length > 1 && (
-              <div className="p-6 border-t border-gray-200 bg-gray-50">
-                <div className="flex gap-3 overflow-x-auto pb-2">
+            </div>            {project.slides.length > 1 && (
+              <div className="p-3 border-b border-gray-200 bg-gray-50">
+                <div className="flex gap-2 overflow-x-auto">
                   {project.slides.map((slide, index) => (
                     <button
                       key={slide.id}
                       onClick={() => goToSlide(index)}
-                      className={`flex-shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-all ${
+                      className={`flex-shrink-0 w-12 h-8 overflow-hidden border transition-all ${
                         index === currentSlide
-                          ? "border-black shadow-md"
+                          ? "border-black"
                           : "border-gray-300 hover:border-gray-400"
                       }`}
                     >
@@ -182,12 +177,12 @@ export default function ProjectModal({
               </div>
             )}
 
-            <div className="px-6 pb-6">
-              <div className="flex flex-wrap gap-2">
+            <div className="p-4">
+              <div className="flex flex-wrap gap-1">
                 {project.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                    className="px-2 py-1 bg-gray-100 text-black text-xs font-mono"
                   >
                     {tag}
                   </span>
