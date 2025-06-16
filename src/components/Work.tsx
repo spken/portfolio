@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
-import { useScrollAnimation, staggerContainer, fadeInUp } from '../hooks/useScrollAnimation'
 
 const projects = [
     {
@@ -54,47 +53,32 @@ const projects = [
 ]
 
 export default function Work() {
-    const { ref: titleRef, isInView: titleInView } = useScrollAnimation()
-    const { ref: gridRef, isInView: gridInView } = useScrollAnimation()
-    const { ref: bottomRef, isInView: bottomInView } = useScrollAnimation()
-
     return (
         <motion.section
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             className="py-12"
-        >
-            <motion.h2
-                ref={titleRef}
-                variants={fadeInUp}
-                initial="hidden"
-                animate={titleInView ? "visible" : "hidden"}
+        >            <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6 }}
                 className="text-2xl font-bold mb-12"
             >
                 Work
             </motion.h2>
-            
-            <motion.div
-                ref={gridRef}
-                variants={staggerContainer}
-                initial="hidden"
-                animate={gridInView ? "visible" : "hidden"}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project, index) => (
                     <motion.div
-                        key={project.id}                        variants={{
-                            hidden: { opacity: 0, y: 50 },
-                            visible: { 
-                                opacity: 1, 
-                                y: 0,
-                                transition: { 
-                                    delay: index * 0.1, 
-                                    duration: 0.6,
-                                    ease: [0.25, 0.46, 0.45, 0.94] as const
-                                }
-                            }
+                        key={project.id}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ 
+                            delay: index * 0.1, 
+                            duration: 0.6,
+                            ease: [0.25, 0.46, 0.45, 0.94]
                         }}
                         className="group cursor-pointer"
                     >
@@ -126,13 +110,13 @@ export default function Work() {
                         </div>
                     </motion.div>
                 ))}
-            </motion.div>
+            </div>
 
             <motion.div
-                ref={bottomRef}
-                variants={fadeInUp}
-                initial="hidden"
-                animate={bottomInView ? "visible" : "hidden"}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6 }}
                 className="mt-16 p-8 bg-gray-50 rounded-lg"
             >
                 <h3 className="text-xl font-semibold mb-4">Academic Projects & Collaborations</h3>

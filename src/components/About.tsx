@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion'
-import { useScrollAnimation, fadeInUp, fadeInLeft, fadeInRight } from '../hooks/useScrollAnimation'
 
 export default function About() {
-  const { ref: titleRef, isInView: titleInView } = useScrollAnimation()
-  const { ref: leftRef, isInView: leftInView } = useScrollAnimation()
-  const { ref: rightRef, isInView: rightInView } = useScrollAnimation()
-
   return (
     <motion.section 
       initial={{ opacity: 0 }}
@@ -14,10 +9,10 @@ export default function About() {
       className="py-12"
     >
       <motion.h2 
-        ref={titleRef}
-        variants={fadeInUp}
-        initial="hidden"
-        animate={titleInView ? "visible" : "hidden"}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6 }}
         className="text-2xl font-bold mb-12"
       >
         About
@@ -25,10 +20,10 @@ export default function About() {
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <motion.div
-          ref={leftRef}
-          variants={fadeInLeft}
-          initial="hidden"
-          animate={leftInView ? "visible" : "hidden"}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
         >
           <p className="text-gray-700 leading-relaxed mb-8">
             My passion for design started with sketching and drawing as a child, evolving 
@@ -57,12 +52,14 @@ export default function About() {
               <li>• Design Research & Theory</li>
             </ul>
           </div>
-        </motion.div>        <motion.div
-          ref={rightRef}
-          variants={fadeInRight}
-          initial="hidden"
-          animate={rightInView ? "visible" : "hidden"}
-        ><div className="mb-12">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="mb-12">
             <h3 className="text-lg font-semibold mb-6">Education</h3>
             <div className="space-y-4">
               <div>
