@@ -59,16 +59,11 @@ export default function ProjectModal({
       prev === project.slides.length - 1 ? 0 : prev + 1,
     );
   };
-
   const previousSlide = () => {
     if (!project) return;
     setCurrentSlide((prev) =>
       prev === 0 ? project.slides.length - 1 : prev - 1,
     );
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
   };
 
   if (!project) return null;
@@ -80,7 +75,7 @@ export default function ProjectModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={onClose}
         >
           <motion.div
@@ -88,24 +83,27 @@ export default function ProjectModal({
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="relative w-full max-w-4xl max-h-[85vh] bg-white border border-gray-200 shadow-xl font-mono overflow-hidden"
+            className="relative w-full max-w-4xl max-h-[90vh] bg-white font-mono overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50">
+            <div className="flex items-center justify-between p-6 pb-4">
               <div className="flex-1 min-w-0">
-                <h2 className="text-lg font-medium text-black truncate">
+                <h2 className="text-xl font-medium text-black truncate">
                   {project.title}
                 </h2>
-                <p className="text-sm text-gray-600 mt-1 line-clamp-2">{project.description}</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  {project.description}
+                </p>
               </div>
               <button
                 onClick={onClose}
-                className="ml-4 p-1 hover:bg-gray-200 transition-colors"
+                className="ml-4 p-2 hover:bg-gray-100 transition-colors rounded-full cursor-pointer"
               >
-                <X size={20} className="text-gray-600" />
+                <X size={18} className="text-gray-700" />
               </button>
-            </div>            <div className="relative">
-              <div className="aspect-video relative overflow-hidden bg-gray-100">
+            </div>
+            <div className="relative px-6">
+              <div className="aspect-video relative overflow-hidden bg-gray-50">
                 <motion.img
                   key={currentSlide}
                   initial={{ opacity: 0 }}
@@ -123,66 +121,39 @@ export default function ProjectModal({
                   <>
                     <button
                       onClick={previousSlide}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-white/90 hover:bg-white border border-gray-200 shadow-sm transition-all"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white/90 transition-all rounded-full cursor-pointer"
                     >
-                      <ChevronLeft size={18} className="text-black" />
+                      <ChevronLeft size={16} className="text-gray-700" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-white/90 hover:bg-white border border-gray-200 shadow-sm transition-all"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 hover:bg-white/90 transition-all rounded-full cursor-pointer"
                     >
-                      <ChevronRight size={18} className="text-black" />
+                      <ChevronRight size={16} className="text-gray-700" />
                     </button>
                   </>
                 )}
-
-                <div className="absolute bottom-3 right-3 px-2 py-1 bg-white/90 text-black text-xs border border-gray-200 font-mono">
-                  {currentSlide + 1}/{project.slides.length}
-                </div>
               </div>
 
               {project.slides[currentSlide].title && (
-                <div className="p-4 border-b border-gray-200">
+                <div className="py-4">
                   <h3 className="text-sm font-medium text-black mb-1">
                     {project.slides[currentSlide].title}
                   </h3>
                   {project.slides[currentSlide].description && (
-                    <p className="text-xs text-gray-600 leading-relaxed">
+                    <p className="text-xs text-gray-500 leading-relaxed">
                       {project.slides[currentSlide].description}
                     </p>
                   )}
                 </div>
               )}
-            </div>            {project.slides.length > 1 && (
-              <div className="p-3 border-b border-gray-200 bg-gray-50">
-                <div className="flex gap-2 overflow-x-auto">
-                  {project.slides.map((slide, index) => (
-                    <button
-                      key={slide.id}
-                      onClick={() => goToSlide(index)}
-                      className={`flex-shrink-0 w-12 h-8 overflow-hidden border transition-all ${
-                        index === currentSlide
-                          ? "border-black"
-                          : "border-gray-300 hover:border-gray-400"
-                      }`}
-                    >
-                      <img
-                        src={slide.image}
-                        alt={`Slide ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="p-4">
-              <div className="flex flex-wrap gap-1">
+            </div>
+            <div className="px-6 pb-6">
+              <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-2 py-1 bg-gray-100 text-black text-xs font-mono"
+                    className="px-2 py-1 text-xs text-gray-600 font-mono"
                   >
                     {tag}
                   </span>
