@@ -3,9 +3,21 @@ import { Mail, MapPin, ExternalLink, GraduationCap } from "lucide-react";
 
 export default function Contact() {
   const socialLinks = [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/carlota-vaquer-rodemann-290177352/", icon: ExternalLink },
-    { label: "Instagram", href: "https://www.instagram.com/carlota.vaquer/", icon: ExternalLink },
-    { label: "Pinterest", href: "https://es.pinterest.com/Carlotavaquer/", icon: ExternalLink },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/carlota-vaquer-rodemann-290177352/",
+      icon: ExternalLink,
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/carlota.vaquer/",
+      icon: ExternalLink,
+    },
+    {
+      label: "Pinterest",
+      href: "https://es.pinterest.com/Carlotavaquer/",
+      icon: ExternalLink,
+    },
   ];
 
   return (
