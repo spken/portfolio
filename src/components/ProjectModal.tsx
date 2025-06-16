@@ -114,7 +114,7 @@ export default function ProjectModal({
                     project.slides[currentSlide].title ||
                     `Slide ${currentSlide + 1}`
                   }
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
 
                 {project.slides.length > 1 && (
@@ -160,6 +160,14 @@ export default function ProjectModal({
                 ))}
               </div>
             </div>
+            
+            {project.slides.length > 1 && (
+              <div className="absolute bottom-4 right-6">
+                <span className="text-xs text-gray-400 font-mono">
+                  {currentSlide + 1}/{project.slides.length}
+                </span>
+              </div>
+            )}
           </motion.div>
         </motion.div>
       )}
