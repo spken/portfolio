@@ -70,11 +70,10 @@ export default function Work() {
       transition={{ duration: 0.6 }}
       className="py-12"
     >
-      {" "}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6 }}
         className="text-2xl font-bold mb-12"
       >
@@ -133,21 +132,21 @@ export default function Work() {
         transition={{ duration: 0.6 }}
         className="mt-16 p-8 bg-gray-50 rounded-lg"
       >
-        <h3 className="text-xl font-semibold mb-4">
-          Academic Projects & Collaborations
+        <h3 className="text-lg font-semibold mb-4">
+          Academic Journey & Aspirations
         </h3>
         <div className="flex flex-wrap gap-4 text-gray-600">
-          <span>University Design Department</span>
+          <span>Universidad Europea Madrid</span>
           <span>•</span>
-          <span>Local Art Gallery</span>
+          <span>Design Student</span>
           <span>•</span>
-          <span>Student Design Collective</span>
+          <span>Class of 2028</span>
           <span>•</span>
-          <span>Community Arts Center</span>
+          <span>Seeking Internships</span>
           <span>•</span>
-          <span>Design Competition Winner</span>
+          <span>Available for Freelance</span>
           <span>•</span>
-          <span>Freelance Projects</span>
+          <span>Creative Collaborations</span>
         </div>
       </motion.div>
     </motion.section>

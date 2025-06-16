@@ -26,7 +26,7 @@ function App() {
       />
       <main className="container mx-auto px-6 py-8 max-w-6xl">
         <Hero />
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <motion.div
             key={activeSection}
             initial={{ opacity: 0, y: 20 }}

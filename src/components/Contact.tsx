@@ -1,19 +1,11 @@
 import { motion } from "framer-motion";
-import {
-  Mail,
-  MapPin,
-  Clock,
-  ExternalLink,
-} from "lucide-react";
+import { Mail, MapPin, ExternalLink, GraduationCap } from "lucide-react";
 
 export default function Contact() {
   const socialLinks = [
-    { label: "LinkedIn", href: "#", icon: ExternalLink },
-    { label: "Instagram", href: "#", icon: ExternalLink },
-    { label: "Dribbble", href: "#", icon: ExternalLink },
-    { label: "Behance", href: "#", icon: ExternalLink },
-    { label: "Pinterest", href: "#", icon: ExternalLink },
-    { label: "GitHub", href: "#", icon: ExternalLink },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/carlota-vaquer-rodemann-290177352/", icon: ExternalLink },
+    { label: "Instagram", href: "https://www.instagram.com/carlota.vaquer/", icon: ExternalLink },
+    { label: "Pinterest", href: "https://es.pinterest.com/Carlotavaquer/", icon: ExternalLink },
   ];
 
   return (
@@ -36,19 +28,23 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}        >
-        <h3 className="text-lg font-semibold mb-6">Find me</h3>
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h3 className="text-lg font-semibold mb-6">Find me</h3>
           <p className="text-gray-700 leading-relaxed mb-8">
-            I'm passionate about collaborating with creative minds and bringing 
-            ideas to life through thoughtful design. Whether you're a brand looking 
-            for a fresh visual identity, a publication in need of compelling layouts, 
-            or simply someone who shares a love for good design, I'd love to connect.
+            I'm passionate about collaborating with creative minds and bringing
+            ideas to life through thoughtful design. Whether you're a brand
+            looking for a fresh visual identity, a publication in need of
+            compelling layouts, or simply someone who shares a love for good
+            design, I'd love to connect.
           </p>
-          
+
           <p className="text-gray-700 leading-relaxed mb-8">
-            Currently based in New York and actively seeking opportunities to 
-            contribute to meaningful projects while continuing to grow as a designer. 
-            I'm available for freelance projects, internships, and collaborative opportunities.
+            Currently studying Design at Universidad Europea in Madrid since
+            September 2024. I'm actively seeking opportunities to contribute to
+            meaningful projects while continuing to grow as a designer.
+            Available for freelance projects, internships, and collaborative
+            opportunities.
           </p>
         </motion.div>
 
@@ -80,13 +76,13 @@ export default function Contact() {
               </motion.a>
             ))}
           </div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <h4 className="font-semibold mb-3">Let's collaborate</h4>
+            <h4 className="text-base font-semibold mb-3">Let's collaborate</h4>
             <p className="text-gray-600 text-sm leading-relaxed">
               I'm always excited about new creative challenges and learning
               opportunities. Whether you have a project idea, internship
@@ -110,7 +106,7 @@ export default function Contact() {
             className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg"
           >
             <Mail size={24} className="text-gray-500 mb-4" />
-            <h3 className="font-semibold mb-2">Email</h3>
+            <h3 className="text-base font-semibold mb-2">Email</h3>
             <a
               href="mailto:carlotastar@icloud.com"
               className="hover:text-black transition-colors text-sm"
@@ -126,8 +122,8 @@ export default function Contact() {
             className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg"
           >
             <MapPin size={24} className="text-gray-500 mb-4" />
-            <h3 className="font-semibold mb-2">Location</h3>
-            <p className="text-sm">New York, NY</p>
+            <h3 className="text-base font-semibold mb-2">Location</h3>
+            <p className="text-sm">Madrid, ES</p>
           </motion.div>
 
           <motion.div
@@ -136,9 +132,13 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 1.0 }}
             className="flex flex-col items-center text-center p-6 bg-gray-50 rounded-lg"
           >
-            <Clock size={24} className="text-gray-500 mb-4" />
-            <h3 className="font-semibold mb-2">Availability</h3>
-            <p className="text-sm">Available for freelance projects & internships</p>
+            <GraduationCap size={24} className="text-gray-500 mb-4" />
+            <h3 className="text-base font-semibold mb-2">Education</h3>
+            <p className="text-sm">Design Student</p>
+            <p className="text-xs text-gray-500 mt-1">
+              Universidad Europea, Madrid
+            </p>
+            <p className="text-xs text-gray-500">Since Sept 2024</p>
           </motion.div>
         </div>
       </motion.div>

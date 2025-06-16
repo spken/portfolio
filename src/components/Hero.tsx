@@ -18,7 +18,7 @@ export default function Hero() {
           className="text-4xl lg:text-5xl font-bold leading-tight mb-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, staggerChildren: 0.1 }}
         >
           {titleWords.map((word, index) => (
@@ -26,7 +26,7 @@ export default function Hero() {
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{
                 delay: index * 0.1,
                 duration: 0.5,
@@ -42,9 +42,9 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-lg text-gray-600 max-w-2xl leading-relaxed"
+          className="text-lg text-gray-700 max-w-2xl leading-relaxed"
         >
           Currently pursuing a degree in Design, I explore the intersection of
           creativity and problem-solving through various mediums. From brand
