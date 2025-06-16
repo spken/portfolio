@@ -160,7 +160,7 @@ export default function ProjectModal({
                 ))}
               </div>
             </div>
-            
+
             {project.slides.length > 1 && (
               <div className="absolute bottom-4 right-6">
                 <span className="text-xs text-gray-400 font-mono">

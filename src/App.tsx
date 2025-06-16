@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Header, Hero, Work, About, Contact } from "./components";
+import { Header, Hero, Work, About, Contact, Footer } from "./components";
 
 function App() {
   const [activeSection, setActiveSection] = useState("work");
@@ -38,6 +38,7 @@ function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+      <Footer />
     </div>
   );
 }
