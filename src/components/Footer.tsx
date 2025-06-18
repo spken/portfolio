@@ -87,8 +87,7 @@ export default function Footer() {
           className="mt-8 pt-6 border-t border-gray-100 text-center"
         >
           <p className="text-xs text-gray-400 font-mono">
-            © {currentYear} Carlota Vaquer Rodemann. All rights
-            reserved.
+            © {currentYear} Carlota Vaquer Rodemann. All rights reserved.
           </p>
         </motion.div>
       </div>
