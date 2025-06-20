@@ -41,7 +41,7 @@ export default function Header({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
                 onClick={() => setActiveSection(item.id)}
-                className={`text-sm font-medium transition-all duration-200 hover:text-gray-600 relative ${
+                className={`text-sm font-bold transition-all duration-200 hover:text-gray-600 relative ${
                   activeSection === item.id ? "text-black" : "text-gray-500"
                 }`}
               >
