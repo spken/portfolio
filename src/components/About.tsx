@@ -25,12 +25,11 @@ export default function About() {
           <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
             A passionate design student exploring the intersection of traditional craftsmanship and digital innovation
           </p>
-        </motion.div>        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <motion.div
+        </motion.div>        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="space-y-8"
         >
           <div className="relative">
@@ -78,13 +77,12 @@ export default function About() {
                   "Handmade & Digital Fusion",
                   "Natural Texture Studies",
                   "Contemporary Art Practices"
-                ].map((interest, index) => (
-                  <motion.div
+                ].map((interest, index) => (                  <motion.div
                     key={interest}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    transition={{ duration: 0.4, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="flex items-center gap-2 p-3 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200 group"
                   >
                     <div className="w-2 h-2 bg-gray-400 rounded-full group-hover:bg-blue-400 transition-colors duration-200"></div>
@@ -94,13 +92,11 @@ export default function About() {
               </div>
             </div>
           </div>
-        </motion.div>
-
-        <motion.div
+        </motion.div>        <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="space-y-8"
         >
           <div className="relative">
@@ -180,13 +176,12 @@ export default function About() {
                   "Creating art that bridges analog and digital worlds",
                   "Contributing to eco-conscious creative projects",
                   "Developing a unique artistic voice and style"
-                ].map((goal, index) => (
-                  <motion.div
+                ].map((goal, index) => (                  <motion.div
                     key={goal}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    transition={{ duration: 0.4, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="flex items-center gap-3 p-3 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-200 group"
                   >
                     <div className="w-2 h-2 bg-orange-400 rounded-full group-hover:bg-orange-500 transition-colors duration-200"></div>

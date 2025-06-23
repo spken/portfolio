@@ -44,12 +44,11 @@ export default function Contact() {
           <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Ready to collaborate on meaningful projects and explore creative opportunities together
           </p>
-        </motion.div>        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-        <motion.div
+        </motion.div>        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl"></div>
@@ -75,13 +74,11 @@ export default function Contact() {
               </p>
             </div>
           </div>
-        </motion.div>
-
-        <motion.div
+        </motion.div>        <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl"></div>
@@ -115,13 +112,11 @@ export default function Contact() {
                     />
                   </motion.a>
                 ))}
-              </div>
-
-              <motion.div
+              </div>              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm"
               >
                 <h4 className="text-base font-semibold text-gray-900 mb-3">Let's Collaborate</h4>
@@ -135,13 +130,11 @@ export default function Contact() {
             </div>
           </div>
         </motion.div>
-        </div>
-
-        <motion.div
+        </div>        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="relative"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl"></div>
@@ -151,12 +144,11 @@ export default function Contact() {
               <h3 className="text-xl font-semibold text-gray-900">Get In Touch</h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <motion.div
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="flex flex-col items-center text-center p-6 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
@@ -169,13 +161,11 @@ export default function Contact() {
                 >
                   carlotastar@icloud.com
                 </a>
-              </motion.div>
-
-              <motion.div
+              </motion.div>              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="flex flex-col items-center text-center p-6 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
@@ -183,13 +173,11 @@ export default function Contact() {
                 </div>
                 <h4 className="text-base font-semibold text-gray-900 mb-2">Location</h4>
                 <p className="text-gray-600 text-sm font-medium">Madrid, Spain</p>
-              </motion.div>
-
-              <motion.div
+              </motion.div>              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="flex flex-col items-center text-center p-6 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
