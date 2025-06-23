@@ -60,7 +60,7 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors duration-200 group"
+                className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors duration-150 group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: 20 }}
@@ -69,10 +69,9 @@ export default function Footer() {
                 viewport={{ once: true }}
               >
                 <link.icon size={16} />
-                <span className="text-sm font-mono">{link.name}</span>
-                <ExternalLink
+                <span className="text-sm font-mono">{link.name}</span>                <ExternalLink
                   size={12}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-150"
                 />
               </motion.a>
             ))}
