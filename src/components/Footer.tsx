@@ -69,7 +69,8 @@ export default function Footer() {
                 viewport={{ once: true }}
               >
                 <link.icon size={16} />
-                <span className="text-sm font-mono">{link.name}</span>                <ExternalLink
+                <span className="text-sm font-mono">{link.name}</span>{" "}
+                <ExternalLink
                   size={12}
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-150"
                 />

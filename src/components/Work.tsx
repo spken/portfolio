@@ -228,7 +228,9 @@ export default function Work() {
   };
 
   return (
-    <>      <motion.section
+    <>
+      {" "}
+      <motion.section
         id="work"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -249,101 +251,115 @@ export default function Work() {
             </h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto mb-4"></div>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              A curated collection of design projects showcasing creative problem-solving and visual storytelling
+              A curated collection of design projects showcasing creative
+              problem-solving and visual storytelling
             </p>
-          </motion.div>        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group cursor-pointer"
-              onClick={() => openModal(project)}
-              whileHover={{ y: -8 }}
-            >
-              <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-300">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold group-hover:text-gray-600 transition-colors duration-300 leading-tight">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="text-xs px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors duration-200 font-medium"
+          </motion.div>{" "}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group cursor-pointer"
+                onClick={() => openModal(project)}
+                whileHover={{ y: -8 }}
+              >
+                <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-xl bg-gray-100 shadow-md group-hover:shadow-xl transition-all duration-300">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    <svg
+                      className="w-4 h-4 text-gray-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <h3 className="text-xl font-semibold group-hover:text-gray-600 transition-colors duration-300 leading-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-xs px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition-colors duration-200 font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>{" "}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            className="mt-20 relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl"></div>
+            <div className="relative p-8 md:p-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full"></div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  Academic Journey & Aspirations
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-600">
+                <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                  <span className="font-medium">
+                    Universidad Europea Madrid
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                  <span className="font-medium">Design Student</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                  <span className="font-medium">Class of 2028</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <span className="font-medium">Seeking Internships</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="font-medium">Available for Freelance</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  <span className="font-medium">Creative Collaborations</span>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="mt-20 relative"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl"></div>
-          <div className="relative p-8 md:p-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-3 h-3 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full"></div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Academic Journey & Aspirations
-              </h3>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-600">
-              <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                <span className="font-medium">Universidad Europea Madrid</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                <span className="font-medium">Design Student</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                <span className="font-medium">Class of 2028</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                <span className="font-medium">Seeking Internships</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="font-medium">Available for Freelance</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white/70 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                <span className="font-medium">Creative Collaborations</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
         </div>
       </motion.section>
-
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}
