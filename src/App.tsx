@@ -19,12 +19,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black font-mono">
-      <Header
+    <div className="min-h-screen bg-white text-black font-mono">      <Header
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
-      <main className="container mx-auto px-6 py-8 max-w-6xl">
+      <main className="container mx-auto py-8 max-w-6xl">
         <Hero />
         <AnimatePresence>
           <motion.div

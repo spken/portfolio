@@ -24,7 +24,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-gray-200 bg-white">
-      <div className="container mx-auto px-6 py-8 max-w-6xl">
+      <div className="container mx-auto py-8 max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col items-start">
             <motion.h3

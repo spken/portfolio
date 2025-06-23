@@ -22,7 +22,7 @@ export default function Header({
       transition={{ duration: 0.5 }}
       className="border-b border-gray-200 bg-white sticky top-0 z-50 backdrop-blur-sm bg-white/95"
     >
-      <div className="container mx-auto px-6 py-4 max-w-6xl">
+      <div className="container mx-auto py-4 max-w-6xl">
         <div className="flex justify-between items-center">
           <motion.h1
             initial={{ opacity: 0 }}
